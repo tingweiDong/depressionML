@@ -23,7 +23,7 @@ data2015$begin_year <- as.double(data2015$begin_year)
 data2015$end_year <- c(2016)
 data2015$end_year <- as.double(data2015$end_year)
 
-# March 2017 - 202020 datasets
+# March 2017 - 2020 datasets
 download.file("https://wwwn.cdc.gov/nchs/nhanes/2017-2018/P_DPQ.xpt", 
               tf <- tempfile(), 
               mode="wb")

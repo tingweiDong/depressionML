@@ -4,17 +4,21 @@ author: "Vivian Dong 300525329, Saumya Sajwan, Samanalie Perera"
 classoption: 12pt
 output: bookdown::pdf_document2
 date: November 1, 2022
+bibliography: reference.bib
+link-citations: true
+biblio_style: "apalike"
 ---
 
-bookdown::pdf_document2
+# Executive Summary
 
+# Background
+A study found that depression increased from 9% in 2017–2018 to over 14% in April 2020 among US adults during the COVID-19 pandemic. Among different age groups, the mental health of young adults is most affected by the pandemic. This increased rate was not normal compared to other years, and there was not enough attention paid to data examining tools either. [@depressionStats]
 
-# Background [1-2 pages]
-- Describe the background of the project
-- Aims of the analysis
-- Specific question(s) you were asked to answer in the Detailed Analysis
+There are blood tests, brain scans and other medical examining methods for a depression diagnosis. In the end, the most affected way is to let the patients describe their symptoms. To achieve this, patients can answer a questionnaire like determining the frequency of depression symptoms over the past two weeks. This method may lead to subjective bias and imperfections in the diagnostic capabilities. [@diagnose] However, the cause of depression could be from many other things, such as sleep disorders, drug use, alcohol use and weight loss. For example, if a person has been working in a stressful environment with low income and not enough sleep, that person may have a higher chance than other people to have depression.
 
+Healthcare data from the National Health and Nutrition Examination Survey database includes a wide range of concepts, like health records, genetic information and even demographic data. Furthermore, machine learning tools tend to perform better than humans at processing these big data sets and making use of it.[@bias] 
 
+Our primary goal in this project was to train a machine learning classification model to identify patients who suffer from depression using demographics and healthcare data from the NHANES database.
 
 # Data Description [1-2 pages]
 - State the types of data in the dataset(s) and the structure of the dataset(s). Are the data nu- merical, categorical, or both? Time series? Coordinates? Diagnostic categories? This does NOT need to be an exhaustive list of every variable, just a few comments on the overall types.
@@ -23,4 +27,17 @@ bookdown::pdf_document2
 
 - State how complete the dataset(s) are (i.e.how many missing, any structure to the missing data, whether there are errors in the data)
 
-A large predictor set of health determinants from the National Health and Nutrition Examination Survey 2015–2016 database was used to predict adults’ scores on a validated instrument to screen for the presence and severity of depression (Patient Health Questionnaire-9 [PHQ-9]). After model training, the relative influence of individual predictors on depression scores was stratified and analyzed. Model prediction performance was determined by prediction error metrics.
+#################################################################################
+we are using a questionnaire and calculate score.
+
+# Ethics, Privacy and Security
+
+# Exploratory Data Analysis
+
+# Detailed Analysis Results
+
+# Conclusions and Recommendations
+
+# Reference List
+
+
