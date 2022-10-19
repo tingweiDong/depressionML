@@ -1,0 +1,26 @@
+---
+title: 'Predicting Depression Using Machine Learning'
+author: "Vivian Dong 300525329, Saumya Sajwan, Samanalie Perera"
+classoption: 12pt
+output: bookdown::pdf_document2
+date: November 1, 2022
+---
+
+bookdown::pdf_document2
+
+
+# Background [1-2 pages]
+- Describe the background of the project
+- Aims of the analysis
+- Specific question(s) you were asked to answer in the Detailed Analysis
+
+
+
+# Data Description [1-2 pages]
+- State the types of data in the dataset(s) and the structure of the dataset(s). Are the data nu- merical, categorical, or both? Time series? Coordinates? Diagnostic categories? This does NOT need to be an exhaustive list of every variable, just a few comments on the overall types.
+
+- Specifically state the attributes of any variables that are used in the Detailed Analysis, in partic- ular for any categorical variables explain the meaning of their categories
+
+- State how complete the dataset(s) are (i.e.how many missing, any structure to the missing data, whether there are errors in the data)
+
+A large predictor set of health determinants from the National Health and Nutrition Examination Survey 2015–2016 database was used to predict adults’ scores on a validated instrument to screen for the presence and severity of depression (Patient Health Questionnaire-9 [PHQ-9]). After model training, the relative influence of individual predictors on depression scores was stratified and analyzed. Model prediction performance was determined by prediction error metrics.
