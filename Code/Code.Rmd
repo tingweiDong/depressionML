@@ -31,3 +31,8 @@ colnames(df)
 ```{r}
 str(df)
 ```
+
+```{r}
+table(df$result)
+
+```

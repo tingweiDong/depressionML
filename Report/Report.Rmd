@@ -71,6 +71,25 @@ The structure of the missing data in our data set varied from variable to variab
 Another problem we had was that the variables in the data set from each year may be different or have different names. We ended up choosing the variables that appeared every year and changing them to have the same names.
 
 # Ethics, Privacy and Security
+## Ethical Considerations
+There are a number of ethical concerns that need to be considered when developing and deploying a machine learning algorithm that predicts if an individual is depressed. First, it is important to consider the potential impact of false positives and false negatives. If the algorithm incorrectly predicts that an individual is depressed, this could lead to them being unnecessarily treated or stigmatized. On the other hand, if the algorithm fails to predict that an individual is depressed, this could result in them not receiving the help they need.
+
+## Privacy Concerns
+### Access and use
+Whether we got permission and notified every respondent before using their information is essential, especially under legislation in different states. Also, our model requires access to many respondents’ data, and we need to prevent the data from being used in different ways over time.
+
+### Re-identification
+Another concern with healthcare data is whether we can protect patients’ information. A lot of research shows that people can use different techniques to re-identify individuals in the data. However, on the other hand, too much de-identification may diminish the clinical utility of the data, but too little de-identification may lead to a breach of privacy. [@concerns]
+
+## Security concerns
+If the algorithm is made public via a data leak, then anyone could use it to find out which individuals are more likely to be depressed. This information could be used to target those individuals with ads or content that exploits their vulnerabilities. For example, an advertiser could show ads for antidepressant medications to someone who is predicted to be depressed.
+
+### Steps to secure data
+The steps we can take to maintain integrity and confidentiality is making sure that only authorized users have access to the data. To do that, we can:
+
+- Make the GitHub repository private. That way only authorized people have access (group members)
+- Password can protect our data- with a password that is only distributed to the users who are authorized access
+- To protect the integrity of the data, we can make sure only to have information that is needed for this analysis, as well as not re-identifying the data (which is mentioned in privacy concerns)
 
 # Exploratory Data Analysis
 
