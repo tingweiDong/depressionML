@@ -43,7 +43,10 @@ dataFrom20112014 <- rbind(dataFrom20052011, data2013)
 dataFrom20152017 <- rbind(data2015, data2017)
 fulldataset <- rbind(dataFrom20112014,dataFrom20152017 )
 
-# Omitting all NA values: 40,496 to 24,449. 16,047 values were taken out. 
+fulldataset[fulldataset == 7] <- NA
+fulldataset[fulldataset == 9] <- NA
+
+# Omitting all NA values: 43,928 to 26,473. 
 fulldataset <- na.omit(fulldataset)
 
 # Adding in a score column by calculating all the values in each column for a individual to get them a final score 
@@ -239,8 +242,9 @@ var_df <- Reduce(function(x, y) merge(x, y, all=TRUE), df_list)
 
 depression <- data.frame(fulldataset$SEQN, fulldataset$finalScore)
 names(depression) <- c('id', 'result')
-df <- merge(depression, var_df, by = c("id"))       
+df <- merge(depression, var_df, by = c("id")) 
 
 write.csv(df, 'Data/project_data.csv')
 
 # numerical: age, sleep_hours, SMD641, WHD010, WHD020, WHD050, WHD110, WHD120, WHD140
+
