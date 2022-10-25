@@ -112,23 +112,20 @@ The steps we can take to maintain integrity and confidentiality is making sure t
 
 ####################################################################################
 
-There are 26473 observations and 29 variables in our data set. Out of those 29 features, 28 are explanatory variables, and the other 2 are our target variable and unique id for each respondent. Due to the way the NHANES data was encoded, all variables are currently considered to be numeric even though some of these variables are actually categorical. This will need to be changed before we start our modeling. The actual numerical variables are; "age", "family_PIR", "sleep_hours", "drinks_per_occasion", "SMD030", "SMD641", "SMD650", "SMD630", "WHD010", "WHD020", "WHD050", "WHD110", "WHD120", "WHD140", "WHQ150".
+There are 26473 observations and 29 variables in our data set. Out of those 29 features, 28 are explanatory variables, and the other 2 are our target variable and unique id for each respondent. Due to the way the NHANES data was encoded, all variables are currently considered to be numeric even though some of these variables are actually categorical. This will need to be changed before we start our modeling. We have 15 numerical and 12 categorical variables, and the actual numerical variables are; "age", "family_PIR", "sleep_hours", "drinks_per_occasion", "SMD030", "SMD641", "SMD650", "SMD630", "WHD010", "WHD020", "WHD050", "WHD110", "WHD120", "WHD140", "WHQ150".
+
+All the variables apart from result, age, gender, and race have missing values. Imputation of some form will be used to deal with this before we start building our model.
 
 
 
-## Summary Table
+
+## Summary Tabl
 ### Categorical Summary
+![Bar plot for target variable - depression](../Output/imbalanced.png)
 
 ### Numerical Summary
 
-## Skewness and kurtosis
-### Skewness
-
-### Kurtosis
-
 ## Correlation Matrix and plot
-
-## Box Plot
 
 ## Pairs Plot
 
