@@ -92,43 +92,40 @@ The steps we can take to maintain integrity and confidentiality is making sure t
 - To protect the integrity of the data, we can make sure only to have information that is needed for this analysis, as well as not re-identifying the data (which is mentioned in privacy concerns)
 
 # Exploratory Data Analysis
-- Revise the style and content of the EDA section from the Phase 1 group report in response to the feedback you received about that report
-
-- Select a subset of the results from the Phase 1 group report. You do not need to include every plot from the EDA assignment. You may want to choose particular plots that turned out to be most relevant for the detailed analysis.
-
-- A few summary tables and/or plots, each describing one, two or three variables in the data that you thought were interesting, or were relevant for the detailed analysis
-
-- Tables can be summary statistics of individual variables, contingency tables for pairs of categorical variables, or results tables for basic analyses
-
-- Explain the definitions of the variables in each table/plot
-
-- Comment on the main features of each plot
-
-- Include suitable labels and keys for each plot
-
-- Make sure all plots would be readable if printed in black & white, and adjust the point sizes and/or line thicknesses to improve readability
-
-- Lay out all tables so that they are clearly readable and clearly labelled, and do not use excessive significant figures
-
-####################################################################################
-
 There are 26473 observations and 29 variables in our data set. Out of those 29 features, 28 are explanatory variables, and the other 2 are our target variable and unique id for each respondent. Due to the way the NHANES data was encoded, all variables are currently considered to be numeric even though some of these variables are actually categorical. This will need to be changed before we start our modeling. We have 15 numerical and 12 categorical variables, and the actual numerical variables are; "age", "family_PIR", "sleep_hours", "drinks_per_occasion", "SMD030", "SMD641", "SMD650", "SMD630", "WHD010", "WHD020", "WHD050", "WHD110", "WHD120", "WHD140", "WHQ150".
 
-All the variables apart from result, age, gender, and race have missing values. Imputation of some form will be used to deal with this before we start building our model.
+All the variables apart from result, age, gender, race and trouble_sleeping_history have missing values. Imputation of some form will be used to deal with this before we start building our model.
 
-
-
-
-## Summary Tabl
+## Summary Table
 ### Categorical Summary
+Figure 1 shows the total number for the respondents who has depression (=1) or does not have depression (=0). We can see that there are way more respondents that does not suffer from depression. This means our data set is imbalanced, so while splitting the data set for model training, we need to deal with imbalanced classification problem.
+
 ![Bar plot for target variable - depression](../Output/imbalanced.png)
 
+
 ### Numerical Summary
+From Figure 2 we can see that all the numerical variables appear do not have a normal distribution, and most of them are skewed.
 
-## Correlation Matrix and plot
+![Barplot for Numerical Variables](../Output/numhist.png)
 
-## Pairs Plot
+## Correlation
+Figure 3 shows the correlation between all numerical variables and Table 3 is the variables pairs that have a high correlation, those are higher than 0.8. 
 
+
+From Figure 3 and Table 3, we can see that the weight of the respondent 1 year ago and the weight of the respondent (pounds) have the strongest positive correlation, which is 0.9305. As you can see those variables all start with "WH", this means they are from the Weight History data set. This is expected as all of these variables are related to the individuals weight and/or height, which are known to have a linear relationship between them. This suggests that multi-collinearity may be present, meaning some of these variables may need to be removed before modelling, depending on the type of model being created.
+
+![Correlation plot](../Output/cor.png)
+
+| Variable A | Variable B | Correlation |
+|:-----------|:-----------|:------------|
+| WHD110     | WHD050     | 0.8061      |
+| age        | WHQ150     | 0.8080      |
+| WHD110     | WHD140     | 0.8622      |
+| WHD020     | WHD140     | 0.9063      |
+| WHD050     | WHD140     | 0.9122      |
+| WHD050     | WHD020     | 0.9305      |
+
+Table: High correlation pairs (>0.8)
 
 # Detailed Analysis Results
 
