@@ -23,9 +23,7 @@ Our primary goal in this project was to train a machine learning classification 
 # Data Description
 The NHANES 2005 - March 2020 year range was selected as the data set for this project. We did not go before 2005 because the survey questions were different compared to later years. Demographics, sleep disorders, alcohol use, smoking (cigarette use) and weight history information are used as predictors since they are found to be primary factors for the cause of depression. We manually selected the variables with less than 50% missing rate from these data sets. For our target variable - depression, we used the Mental Health - Depression Screener data sets and PHQ-9 scoring system [@score] to identify whether a person has depression. The final scores of 0–4, 5–9, 10–14, 15–19, and 20–27 are the ranges for none, mild, moderate, moderately severe and severe depression, respectively. In our project, we wanted to focus on building a binary classification model, so if the respondent has a total score that is greater than or equal to 10, then the individual is identified as having depression. 
 
-As a result, we have 29 variables in our data set, including id, depression result, and 27 predictors, including 15 numerical and 12 categorical variables.
-
-The description of the numerical data is given in the table below.
+As a result, we have 29 variables in our data set, including id, depression result, and 27 predictors, including 15 numerical and 12 categorical variables. Table 1 and 2 show the descriptions of data.
 
 | Variable                | Description                                        |
 |:------------------------|:---------------------------------------------------|
@@ -46,7 +44,7 @@ The description of the numerical data is given in the table below.
 | WHD140                  | Respondent's heaviest weight (pounds)              |
 | WHQ150                  | Age of the respondent when heaviest weight         |
 
-The description of the categorical data is given in the table below.
+Table: Description of the numerical data
 
 | Variable                | Description                                        |
 |:------------------------|:---------------------------------------------------|
@@ -63,6 +61,8 @@ The description of the categorical data is given in the table below.
 | WHQ030                  | How respondent consider their weight               |
 | WHQ040                  | Respondent likes to weigh more, less or the same   |
 | WHQ070                  | Whether the respondent tried to lose weight in the past year|
+
+Table: Description of the categorical data
 
 We had 43,928 entries when we first combined all the data sets, but we need the respondent to answer every single question in the Mental Health - Depression Screener Survey to calculate the score. Therefore, we had to remove the respondent who did not complete the survey, which gave us 26,473 data at the end. (17,455 respondents were taken out)
 
@@ -92,6 +92,46 @@ The steps we can take to maintain integrity and confidentiality is making sure t
 - To protect the integrity of the data, we can make sure only to have information that is needed for this analysis, as well as not re-identifying the data (which is mentioned in privacy concerns)
 
 # Exploratory Data Analysis
+- Revise the style and content of the EDA section from the Phase 1 group report in response to the feedback you received about that report
+
+- Select a subset of the results from the Phase 1 group report. You do not need to include every plot from the EDA assignment. You may want to choose particular plots that turned out to be most relevant for the detailed analysis.
+
+- A few summary tables and/or plots, each describing one, two or three variables in the data that you thought were interesting, or were relevant for the detailed analysis
+
+- Tables can be summary statistics of individual variables, contingency tables for pairs of categorical variables, or results tables for basic analyses
+
+- Explain the definitions of the variables in each table/plot
+
+- Comment on the main features of each plot
+
+- Include suitable labels and keys for each plot
+
+- Make sure all plots would be readable if printed in black & white, and adjust the point sizes and/or line thicknesses to improve readability
+
+- Lay out all tables so that they are clearly readable and clearly labelled, and do not use excessive significant figures
+
+####################################################################################
+
+There are 26473 observations and 29 variables in our data set. Out of those 29 features, 28 are explanatory variables, and the other 2 are our target variable and unique id for each respondent. Due to the way the NHANES data was encoded, all variables are currently considered to be numeric even though some of these variables are actually categorical. This will need to be changed before we start our modeling. The actual numerical variables are; "age", "family_PIR", "sleep_hours", "drinks_per_occasion", "SMD030", "SMD641", "SMD650", "SMD630", "WHD010", "WHD020", "WHD050", "WHD110", "WHD120", "WHD140", "WHQ150".
+
+
+
+## Summary Table
+### Categorical Summary
+
+### Numerical Summary
+
+## Skewness and kurtosis
+### Skewness
+
+### Kurtosis
+
+## Correlation Matrix and plot
+
+## Box Plot
+
+## Pairs Plot
+
 
 # Detailed Analysis Results
 
