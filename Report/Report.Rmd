@@ -128,31 +128,86 @@ From Figure 3 and Table 3, we can see that the weight of the respondent one year
 Table: High correlation pairs (>0.8)
 
 # Detailed Analysis Results
-
-- Explain what analysis techniques you used, and why they were suitable for the data and for the question you needed to answer.
-
-- For each part of the analysis, provide plots/tables/diagrams of the results that will help the reader to understand the results of the analysis.
-
-- Make sure all plots/tables/diagrams are readable and clearly labelled
-
-- If you have been asked to include predictions, state these clearly
-
-- Include estimates of the uncertainty for any results or predictions
-
-- Comment on any biases that you think might exist in the data or the results
+Our goal is to build a binary machine learning classifier to predict whether an individual has depression. We build, train and evaluate our models using the K-nearest neighbours algorithm and Random forest algorithm from the Sklearn Python package. 5-fold repeated cross-validation was used to generate the mean accuracy, which is the performance matrix for selecting the best model. All analyses are run in Python 3.7.6.
 
 ## Data Preprocessing
-- Explain any steps you took to manipulate the data, e.g. converting to logarithmic scale, standardizing continuous variables, etc.
+Here are the steps I took to manipulate the data before building the model:
+- Since variable 'id' does not have any meaning for the target variable, we decided to delete it.
 
-- Explain what you did to account for any missing data.
+- All variables are encoded as numerical variables from the original data set, so I first changed the categorical variables to type 'object'.
+
+- Sklearn can not handle missing values in the data set, leading to errors. Furthermore, we do not want to lose those valuable data because it might cause bias in building the model. So we performed median imputation on all the numerical variables and the most frequent category imputation on categorical variables.
+
+- As you can see from the previous section (Figure 2), all variables have a very different scale. Moreover, K-nearest neighbours, one of the algorithms we will use later for building models, uses the distance between new data and the observations from the training set to predict its label. Standardizing continuous variables will make all variables have equal contributions to the measurements.
+
+- We also converted all categorical variables using a one-hot encoder, so they can provide helpful information and be used in the machine learning algorithms.
 
 ## Evaluate Several Machine Learning Models
+K-nearest neighbours and Random forests are the main models we will be building and training for our project, as they are the most common classification methods. We used 5-fold repeated cross-validation to get the mean accuracy for comparing different models.  
 
-## Parameters tuning
+We have nine models at the end of our model evaluation. For each algorithm, we have eight models, including a base model with the default parameters, a model with the tuned parameters, a model with variables selected using the SelectKBest feature selection method and another with the SelectFromModel method. Finally, we used two tuned models to build an ensemble model using the voting method.
+
+### Defualt Models
+
+| Model                | Mean Accuracy | Standard Deviation |
+|:---------------------|:--------------|:-------------------|
+| K-nearest neighbours | 0.84471       | 0.0029             |
+| Random forest        | 0.85468       | 0.0019             |
+
+Table: Mean Accuracy scores of default models
+
+### Feature Selection
+
+| Model                | Feature Selection Method | Mean Accuracy | Standard Deviation |
+|:---------------------|:-------------------------|:--------------|:-------------------|
+| K-nearest neighbours | SelectKBest              | 0.83615       | 0.0049             |
+| Random forest        | SelectKBest              | 0.83611       | 0.0036             |
+| K-nearest neighbours | SelectFromModel          | 0.84349       | 0.0031             |
+| Random forest        | SelectFromModel          | 0.85466       | 0.0015             |
+
+Table: Mean Accuracy scores of default models with the best features.
+
+### Parameters tuning
+
+| Model                      | Best Accuracy | 
+|:---------------------------|:--------------|
+| Tuned K-nearest neighbours | 0.85275       |
+| Tuned Random forest        | 0.85525       |
+
+Table: Best Accuracy scores of tuned models
+
+### Ensemble Learning
+
+| Model    | Mean Accuracy | Standard Deviation |
+|:---------|:--------------|:-------------------|
+| Ensemble | 0.85387       | 0.0014             |
+
+Table: Mean Accuracy scores of the ensemble model
+
+Table 4 shows that the Random forest with default parameters has higher accuracy than the K-nearest neighbours model. We have tried model selection, parameter tuning and ensemble learning to see whether we can improve the model performance. We can see from Table 5 that feature selection did not improve the model performance, so we are not considering those as the final model. In the following table (Table 6), we tried to tune the parameters for both models, and we can see that the accuracy for both models has increased. Overall, the random forest with the tuned parameters performs the best, with a mean accuracy of 0.85525. Finally, in Table 7, we can find out that the accuracy of the ensemble model is slightly worse than the random forest models.
+
+Since all of the models have really small variances in accuracy, with less than 0.003, we will only consider the accuracy score. We are using the random forest with the tuned parameters as our final model based on the result because it has the best performance compared to other models.
 
 ## Making Predictions
 
+| Model                      | Test Accuracy |
+|:---------------------------|:--------------|
+| K-nearest neighbours       | 0.84651       |
+| Random forest              | 0.85608       |
+| Tuned K-nearest neighbours | 0.85520       |
+| Tuned Random forest        | 0.85646       |
+| Ensemble                   | 0.85659       |
+
+Table: Accuracy scores on the test set for each model
+
+Table 8 shows the accuracy scores on the test set for all the models we have built for the project. We can see that the ensemble model has the highest accuracy, 0.85659, and the following model is the random forest with tuned parameters of 0.85646. The difference between each model is really small, around 0.0001. For this project, our final model is still the random forest with tuned parameters.
+
+
+- Comment on any biases that you think might exist in the data or the results
+
+
 # Conclusions and Recommendations
+future work: outliers, false negative
 
 # Reference List
 
