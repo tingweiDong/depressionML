@@ -92,27 +92,27 @@ The steps we can take to maintain integrity and confidentiality is making sure t
 - To protect the integrity of the data, we can make sure only to have information that is needed for this analysis, as well as not re-identifying the data (which is mentioned in privacy concerns)
 
 # Exploratory Data Analysis
-There are 26473 observations and 29 variables in our data set. Out of those 29 features, 28 are explanatory variables, and the other 2 are our target variable and unique id for each respondent. Due to the way the NHANES data was encoded, all variables are currently considered to be numeric even though some of these variables are actually categorical. This will need to be changed before we start our modeling. We have 15 numerical and 12 categorical variables, and the actual numerical variables are; "age", "family_PIR", "sleep_hours", "drinks_per_occasion", "SMD030", "SMD641", "SMD650", "SMD630", "WHD010", "WHD020", "WHD050", "WHD110", "WHD120", "WHD140", "WHQ150".
+There are 26473 observations and 29 variables in our data set. Of those 29 features, 28 are explanatory variables, and the other 2 are our target variable and a unique id for each respondent. Due to the way the NHANES data was encoded, all variables are currently considered to be numeric, even though some of these variables are actually categorical. This will need to be changed before we start our modelling. We have 15 numerical and 12 categorical variables, and the actual numerical variables are; "age", "family_PIR", "sleep_hours", "drinks_per_occasion", "SMD030", "SMD641", "SMD650", "SMD630", "WHD010", "WHD020", "WHD050", "WHD110", "WHD120", "WHD140", "WHQ150".
 
-All the variables apart from result, age, gender, race and trouble_sleeping_history have missing values. Imputation of some form will be used to deal with this before we start building our model.
+All the variables apart from the result, age, gender, race and trouble_sleeping_history have missing values. Imputation of some form will be used to deal with this before we start building our model.
 
 ## Summary Table
 ### Categorical Summary
-Figure 1 shows the total number for the respondents who has depression (=1) or does not have depression (=0). We can see that there are way more respondents that does not suffer from depression. This means our data set is imbalanced, so while splitting the data set for model training, we need to deal with imbalanced classification problem.
+Figure 1 shows the total number of respondents who has depression (=1) or do not have depression (=0). We can see that there are way more respondents that do not suffer from depression. This means our data set is imbalanced, so we need to deal with the imbalanced classification problem while splitting the data set for model training.
 
 ![Bar plot for target variable - depression](../Output/imbalanced.png)
 
 
 ### Numerical Summary
-From Figure 2 we can see that all the numerical variables appear do not have a normal distribution, and most of them are skewed.
+From Figure 2, we can see that all the numerical variables appear do not have a normal distribution, and most of them are skewed.
 
 ![Barplot for Numerical Variables](../Output/numhist.png)
 
 ## Correlation
-Figure 3 shows the correlation between all numerical variables and Table 3 is the variables pairs that have a high correlation, those are higher than 0.8. 
+Figure 3 shows the correlation between all numerical variables, and Table 3 shows the variables pairs with a high correlation, higher than 0.8. 
 
 
-From Figure 3 and Table 3, we can see that the weight of the respondent 1 year ago and the weight of the respondent (pounds) have the strongest positive correlation, which is 0.9305. As you can see those variables all start with "WH", this means they are from the Weight History data set. This is expected as all of these variables are related to the individuals weight and/or height, which are known to have a linear relationship between them. This suggests that multi-collinearity may be present, meaning some of these variables may need to be removed before modelling, depending on the type of model being created.
+From Figure 3 and Table 3, we can see that the weight of the respondent one year ago and the weight of the respondent (pounds) have the strongest positive correlation, which is 0.9305. As you can see, those variables all start with "WH, " meaning they are from the Weight History data set. This is expected as all of these variables are related to the individual's weight and height, which are known to have a linear relationship between them. This suggests that multi-collinearity may be present, meaning some of these variables may need to be removed before modelling, depending on the type of model being created.
 
 ![Correlation plot](../Output/cor.png)
 
@@ -128,6 +128,29 @@ From Figure 3 and Table 3, we can see that the weight of the respondent 1 year a
 Table: High correlation pairs (>0.8)
 
 # Detailed Analysis Results
+
+- Explain what analysis techniques you used, and why they were suitable for the data and for the question you needed to answer.
+
+- For each part of the analysis, provide plots/tables/diagrams of the results that will help the reader to understand the results of the analysis.
+
+- Make sure all plots/tables/diagrams are readable and clearly labelled
+
+- If you have been asked to include predictions, state these clearly
+
+- Include estimates of the uncertainty for any results or predictions
+
+- Comment on any biases that you think might exist in the data or the results
+
+## Data Preprocessing
+- Explain any steps you took to manipulate the data, e.g. converting to logarithmic scale, standardizing continuous variables, etc.
+
+- Explain what you did to account for any missing data.
+
+## Evaluate Several Machine Learning Models
+
+## Parameters tuning
+
+## Making Predictions
 
 # Conclusions and Recommendations
 
